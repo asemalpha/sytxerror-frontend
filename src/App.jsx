@@ -1,10 +1,11 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,BrowserRouter } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import Company from "./pages/Companies/Company";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -17,6 +18,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        <Route path="/company" element={<Company/>} />
 
         <Route
           path="/profile"
