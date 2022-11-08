@@ -28,6 +28,7 @@ function Navbar() {
           </Link>
 
           <span>{user && user.name}</span>
+          <Link to= "/profile/edit">Edit Profile</Link>
         </>
       )}
 

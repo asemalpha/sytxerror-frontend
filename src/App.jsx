@@ -1,11 +1,14 @@
 import "./App.css";
-import { Routes, Route,BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Company from "./pages/Companies/Company";
+import ProfileEdit from "./pages/ProfilePage/profileEdit"
+import { AuthContext } from "./context/auth.context";
+
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -26,6 +29,14 @@ function App() {
           element={
             <IsPrivate>
               <ProfilePage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/edit"
+          element={
+            <IsPrivate>
+              <ProfileEdit />
             </IsPrivate>
           }
         />
