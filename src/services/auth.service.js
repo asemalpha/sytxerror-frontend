@@ -19,6 +19,10 @@ class AuthService {
     });
   }
 
+  editProfile(userData) {
+    return this.api.post("/user/profile/edit", userData);
+  }
+
   login = (requestBody) => {
     return this.api.post("/auth/login", requestBody);
     // same as

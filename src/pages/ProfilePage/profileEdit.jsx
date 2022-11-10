@@ -11,14 +11,14 @@ function ProfileEdit() {
 
   function handleChange(event) {
     const { value, name } = event.target;
-    console.log(userData);
+
     setUserData({ ...userData, [name]: value });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     authService
-      .post("/profile/edit", userData)
+      .editProfile(userData)
       .then((result) => {
         console.log(result);
         authenticateUser(result.data);
@@ -36,18 +36,18 @@ function ProfileEdit() {
           Company Name
           <input
             type="text"
-            name="username"
+            name="name"
             onChange={handleChange}
-            value={userData.companyName}
+            value={userData.name}
           />
         </label>
         <label>
           Web Site
           <input
             type="text"
-            name="website"
+            name="websiteUrl"
             onChange={handleChange}
-            value={userData.website}
+            value={userData.websiteUrl || ""}
           />
         </label>
         <label>
@@ -56,7 +56,7 @@ function ProfileEdit() {
             type="text"
             name="location"
             onChange={handleChange}
-            value={userData.location}
+            value={userData.location || ""}
           />
         </label>
         <label>
@@ -65,7 +65,7 @@ function ProfileEdit() {
             type="text"
             name="summary"
             onChange={handleChange}
-            value={userData.summary}
+            value={userData.summary || ""}
           />
         </label>
 
