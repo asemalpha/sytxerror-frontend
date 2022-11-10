@@ -7,7 +7,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Company from "./pages/Companies/Company";
 import ProfileEdit from "./pages/ProfilePage/profileEdit"
-import { AuthContext } from "./context/auth.context";
+
 
 
 import Navbar from "./components/Navbar/Navbar";
