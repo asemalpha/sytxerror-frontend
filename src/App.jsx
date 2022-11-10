@@ -5,14 +5,15 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import Company from "./pages/Companies/Company";
-import ProfileEdit from "./pages/ProfilePage/profileEdit"
-
-
+import Job from "./pages/Job/Job";
+import ProfileEdit from "./pages/ProfilePage/profileEdit";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import CreateJob from "./pages/Job/createJob";
+import APP_PATHS from "./app-pathes";
+import SingleJob from "./pages/Job/SingleJob";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/company" element={<Company/>} />
+        <Route path="/job" element={<Job />} />
 
         <Route
           path="/profile"
@@ -40,7 +41,14 @@ function App() {
             </IsPrivate>
           }
         />
-
+        <Route
+          path="/job/create"
+          element={
+            <IsPrivate>
+              <CreateJob />
+            </IsPrivate>
+          }
+        />
         <Route
           path="/signup"
           element={
@@ -57,6 +65,8 @@ function App() {
             </IsAnon>
           }
         />
+
+        <Route path={APP_PATHS.SINGLE_JOB} element={<SingleJob />} />
       </Routes>
     </div>
   );

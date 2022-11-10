@@ -7,7 +7,7 @@ const APP_PATHS = {
   JOBBOARD: "/jobboard",
   JOB_CREATE: "/jobboard/jobs/create",
   CREATE_APPLICATION: "/create-application",
-  SINGLE_JOB: "/:id",
+  SINGLE_JOB: "/job/:id",
 };
 
 export default APP_PATHS;

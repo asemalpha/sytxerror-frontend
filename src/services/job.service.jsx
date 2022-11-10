@@ -1,7 +1,9 @@
-import axios from "axios";
-const api = axios.create({
-    baseURL: `${process.env.REACT_APP_URL_SERVER_URL || "http://localhost:5005"}`
-});
-api.interceptors.request.use((config)=>{
-    const token = localStorage.getItem()
-})
+import apiClient from "./apiClient";
+
+export function createJob(jobinfo) {
+  return apiClient.post("/job/create", jobinfo);
+}
+
+export function getSingleJob(id) {
+  return apiClient.get("/job/" + id);
+}

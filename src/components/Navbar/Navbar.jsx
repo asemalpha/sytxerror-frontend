@@ -14,8 +14,8 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
-      <Link to="/company">
-        <button>Companies</button>
+      <Link to="/Jobs">
+        <button>Jobs</button>
       </Link>
 
       {isLoggedIn && (
@@ -28,7 +28,7 @@ function Navbar() {
           </Link>
 
           <span>{user && user.name}</span>
-          <Link to= "/profile/edit">Edit Profile</Link>
+          <Link to="/profile/edit">Edit Profile</Link>
         </>
       )}
 
