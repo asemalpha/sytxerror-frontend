@@ -1,11 +1,26 @@
 import "./ProfilePage.css";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { FaUser } from "react-icons/fa";
 
+import { deleteUser } from "../../services/profile.service";
+
 function ProfilePage() {
+  const [user, setUser] = useState();
+  console.log(user);
   const authData = useContext(AuthContext);
+  const { logOutUser } = useContext(AuthContext);
+
+  const handleSubmit = () => {
+    const { id } = user.id;
+    deleteUser(id).then((response) => {
+      setUser(response.user.id);
+      console.log(user);
+      Navigate("../");
+      logOutUser();
+    });
+  };
 
   return (
     <div className="Profile">
@@ -33,9 +48,13 @@ function ProfilePage() {
       </div>
       <br />
       <div>
-        <Link to="/user/delete">
+        <button
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
           <FaUser /> Delete Profile
-        </Link>
+        </button>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ function Navbar() {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav>
+    <nav className="nav">
       <Link to="/">
         {" "}
         <FaHome /> SytxError
@@ -29,18 +29,18 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>
-            <FaSignOutAlt /> Logout
-          </button>
-
           <Link to="/profile">
             <FaUser /> Profile
           </Link>
-
+          <br />
           <Link to="/profile/edit">
             {" "}
             <FaEdit /> Edit Profile
           </Link>
+          <br />
+          <button onClick={logOutUser}>
+            <FaSignOutAlt /> Logout
+          </button>
         </>
       )}
 

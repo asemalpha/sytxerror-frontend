@@ -5,5 +5,5 @@ export function createUser(userinfo) {
 }
 
 export function deleteUser(id) {
-  return apiClient.get("/user/" + id);
+  return apiClient.delete(`/profile/${id}`);
 }

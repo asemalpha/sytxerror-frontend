@@ -29,7 +29,7 @@ function CreateApplication() {
         // data.post._id
         // assuming returning -> post
         // assuming returning -> { post: post }
-        navigate(`/application/${data.post._id}`);
+        navigate(`/:id/application/${data.job._id}`);
       })
       .catch((error) => {
         console.error(error.response);
