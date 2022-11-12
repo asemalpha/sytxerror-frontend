@@ -7,6 +7,6 @@ export function createJob(jobinfo) {
 export function getSingleJob(id) {
   return apiClient.get("/job/" + id);
 }
-export function getAllJobs(id) {
-  return apiClient.get("/job/", +id);
+export function getAllJobs() {
+  return apiClient.get("/job/all");
 }
