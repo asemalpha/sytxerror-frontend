@@ -1,5 +1,5 @@
 import "./ProfilePage.css";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { FaUser } from "react-icons/fa";
