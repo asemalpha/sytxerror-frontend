@@ -8,6 +8,7 @@ import {
   FaLocationArrow,
   FaChalkboardTeacher,
   FaLevelUpAlt,
+  FaPaperPlane,
 } from "react-icons/fa";
 
 function CreateJob() {
@@ -82,6 +83,7 @@ function CreateJob() {
           />
         </label>
         <br />
+        <br />
         <label>
           <FaLevelUpAlt /> Seniority
           <input
@@ -92,7 +94,10 @@ function CreateJob() {
           />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <br />
+        <button type="submit">
+          <FaPaperPlane /> Submit
+        </button>
       </form>
     </div>
   );
