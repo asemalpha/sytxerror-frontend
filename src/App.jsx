@@ -6,6 +6,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Job from "./pages/Job/Job";
+import CreateApplication from "./pages/Job/application";
+
 import ProfileEdit from "./pages/ProfilePage/profileEdit";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -24,6 +26,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route path="/job" element={<Job />} />
+
+        <Route path="/job/application" element={<application />} />
 
         <Route
           path="/profile"

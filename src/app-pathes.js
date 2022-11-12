@@ -4,8 +4,7 @@ const APP_PATHS = {
   LOG_IN: "/log-in",
   PROFILE: "/profile",
   PROFILE_EDIT: "/profile/edit",
-  JOBBOARD: "/jobboard",
-  JOB_CREATE: "/jobboard/jobs/create",
+  JOB: "/job/all",
   CREATE_APPLICATION: "/create-application",
   SINGLE_JOB: "/job/:id",
 };

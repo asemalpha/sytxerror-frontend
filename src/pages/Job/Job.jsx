@@ -1,21 +1,22 @@
 import "./Job.css";
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getAllJobs, getSingleJob } from "../../services/job.service";
 
 function Job() {
-  const [data, setData] = useState([]);
+  const [Job, setJob] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get(process.env.REACT_APP_SERVER_URL || "http://localhost:5005/job")
-      .then((result) => {
-        setData(result.data.Job);
+    getAllJobs(id)
+      .then(({ response }) => {
+        setJob(response.data.job);
       })
       .catch((err) => {
         console.log("err:", err);
@@ -24,7 +25,7 @@ function Job() {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [id]);
   if (isLoading) {
     return <div>Getting data....</div>;
   }
@@ -36,12 +37,12 @@ function Job() {
     <div>
       <h1>Jobs</h1>
       <div>
-        {data.map((Job) => {
+        {Job.map((job) => {
           return (
             <article
-              key={Job.slug}
+              key={Job.data._id}
               onClick={() => {
-                navigate(`/job/${Job._id}`);
+                navigate(`/job/${job._id}`);
               }}
               style={{ cursor: "pointer" }}
             >

@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import { FaSignInAlt, FaUser } from "react-icons/fa";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -46,7 +47,10 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h1>
+        <FaSignInAlt /> Login
+      </h1>
+      <p>Please log in</p>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -59,13 +63,18 @@ function LoginPage() {
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
+        <br />
+        <br />
+        <button type="submit">
+          <FaSignInAlt /> Login
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>
+        <FaUser /> Sign Up
+      </Link>
     </div>
   );
 }

@@ -2,6 +2,14 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import {
+  FaEdit,
+  FaHome,
+  FaSearch,
+  FaSignInAlt,
+  FaSignOutAlt,
+  FaUser,
+} from "react-icons/fa";
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -11,36 +19,39 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">
-        <button>Home</button>
+        {" "}
+        <FaHome /> SytxError
       </Link>
 
-      <Link to="/Jobs">
-        <button>Jobs</button>
+      <Link to="/job/all">
+        <FaSearch /> Jobs
       </Link>
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <button onClick={logOutUser}>
+            <FaSignOutAlt /> Logout
+          </button>
 
           <Link to="/profile">
-            <button>Profile</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+            <FaUser /> Profile
           </Link>
 
-          <span>{user && user.name}</span>
-          <Link to="/profile/edit">Edit Profile</Link>
+          <Link to="/profile/edit">
+            {" "}
+            <FaEdit /> Edit Profile
+          </Link>
         </>
       )}
 
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
+            <FaUser />
+            Sign Up
           </Link>
           <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
+            <FaSignInAlt /> Login
           </Link>
         </>
       )}

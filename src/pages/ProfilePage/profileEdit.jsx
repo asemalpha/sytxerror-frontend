@@ -3,6 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 import APP_PATHS from "../../app-pathes";
+import {
+  FaHotel,
+  FaLink,
+  FaLocationArrow,
+  FaChalkboardTeacher,
+  FaPaperPlane,
+} from "react-icons/fa";
 
 function ProfileEdit() {
   const { user, authenticateUser } = useContext(AuthContext);
@@ -20,7 +27,6 @@ function ProfileEdit() {
     authService
       .editProfile(userData)
       .then((result) => {
-        console.log(result);
         authenticateUser(result.data);
         navigation(APP_PATHS.PROFILE);
       })
@@ -31,9 +37,10 @@ function ProfileEdit() {
 
   return (
     <div>
+      <br />
       <form onSubmit={handleSubmit}>
         <label>
-          Company Name
+          <FaHotel /> Company Name
           <input
             type="text"
             name="name"
@@ -41,7 +48,10 @@ function ProfileEdit() {
             value={userData.name}
           />
         </label>
+        <br />
+        <br />
         <label>
+          <FaLink />
           Web Site
           <input
             type="text"
@@ -50,8 +60,10 @@ function ProfileEdit() {
             value={userData.websiteUrl || ""}
           />
         </label>
+        <br />
+        <br />
         <label>
-          Location
+          <FaLocationArrow /> Location
           <input
             type="text"
             name="location"
@@ -59,8 +71,10 @@ function ProfileEdit() {
             value={userData.location || ""}
           />
         </label>
+        <br />
+        <br />
         <label>
-          Summary
+          <FaChalkboardTeacher /> Summary
           <input
             type="text"
             name="summary"
@@ -68,8 +82,11 @@ function ProfileEdit() {
             value={userData.summary || ""}
           />
         </label>
-
-        <button type="submit">Submit</button>
+        <br />
+        <br />
+        <button type="submit">
+          <FaPaperPlane /> Submit
+        </button>
       </form>
     </div>
   );

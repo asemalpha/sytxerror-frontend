@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import { FaUser, FaSignInAlt } from "react-icons/fa";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ function SignupPage() {
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = { email, password, name };
-    console.log(email)
+    console.log(email);
 
     // Send a request to the server using axios
     /* 
@@ -48,22 +49,39 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h1>
+        <FaUser />
+        Sign Up
+      </h1>
+      <p>Please create an account</p>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        <input
+          type="email"
+          name="email"
+          placeholder="Please enter your email"
+          value={email}
+          onChange={handleEmail}
+        />
+        <br />
         <label>Password:</label>
         <input
           type="password"
           name="password"
+          placeholder="Please enter your password"
           value={password}
           onChange={handlePassword}
         />
-
+        <br />
         <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <input
+          type="text"
+          name="name"
+          placeholder="Please enter your name"
+          value={name}
+          onChange={handleName}
+        />
 
         <button type="submit">Sign Up</button>
       </form>
@@ -71,7 +89,10 @@ function SignupPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/login"}>
+        <FaSignInAlt />
+        Login
+      </Link>
     </div>
   );
 }

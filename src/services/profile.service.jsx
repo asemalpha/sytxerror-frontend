@@ -1,31 +1,9 @@
-import axios from "axios";
+import apiClient from "./apiClient";
 
-class ProfileService {
-  constructor() {
-    this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
-    });
-
-    // Automatically set JWT token in the headers for every request
-    this.api.interceptors.request.use((config) => {
-      // Retrieve the JWT token from the local storage
-      const storedToken = localStorage.getItem("authToken");
-
-      if (storedToken) {
-        config.headers = { Authorization: `Bearer ${storedToken}` };
-      }
-
-      return config;
-    });
-  }
-
-  // DELETE USER
-  delete = (userId) => {
-    return this.api.delete(`/profile/${userId}`);
-  };
+export function createUser(userinfo) {
+  return apiClient.post("/user/create", userinfo);
 }
 
-// Create one instance of the service
-const profileService = new ProfileService();
-
-export default profileService;
+export function deleteUser(id) {
+  return apiClient.get("/user/" + id);
+}
