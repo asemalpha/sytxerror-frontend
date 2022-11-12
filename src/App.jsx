@@ -6,7 +6,6 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Job from "./pages/Job/Job";
-import CreateApplication from "./pages/Job/application";
 
 import ProfileEdit from "./pages/ProfilePage/profileEdit";
 

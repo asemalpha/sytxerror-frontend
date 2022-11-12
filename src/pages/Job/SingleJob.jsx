@@ -44,5 +44,4 @@ function SingleJob() {
     </div>
   );
 }
-
 export default SingleJob;

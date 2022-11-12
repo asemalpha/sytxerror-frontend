@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { createJob } from "../../services/job.service";
+import {
+  FaAd,
+  FaArrowRight,
+  FaLocationArrow,
+  FaChalkboardTeacher,
+  FaLevelUpAlt,
+} from "react-icons/fa";
 
 function CreateJob() {
   const [form, setForm] = useState({
@@ -38,10 +45,13 @@ function CreateJob() {
 
   return (
     <div>
-      <h1>Post a job</h1>
+      <br />
+      <h1>
+        <FaAd /> Post a job
+      </h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Title
+          <FaArrowRight /> Title
           <input
             type="text"
             name="title"
@@ -50,8 +60,9 @@ function CreateJob() {
           />
         </label>
         <br />
+        <br />
         <label>
-          Location
+          <FaLocationArrow /> Location
           <input
             type="text"
             name="location"
@@ -60,8 +71,9 @@ function CreateJob() {
           />
         </label>
         <br />
+        <br />
         <label>
-          Description
+          <FaChalkboardTeacher /> Description
           <input
             type="text"
             name="description"
@@ -71,7 +83,7 @@ function CreateJob() {
         </label>
         <br />
         <label>
-          Seniority
+          <FaLevelUpAlt /> Seniority
           <input
             type="text"
             name="seniority"

@@ -1,13 +1,11 @@
 import "./ProfilePage.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { FaUser } from "react-icons/fa";
 
 function ProfilePage() {
   const authData = useContext(AuthContext);
-
-  function handleSubmit(e) {}
 
   return (
     <div className="Profile">

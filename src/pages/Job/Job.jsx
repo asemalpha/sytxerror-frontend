@@ -2,7 +2,7 @@ import "./Job.css";
 
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAllJobs, getSingleJob } from "../../services/job.service";
+import { getAllJobs } from "../../services/job.service";
 
 function Job() {
   const [Job, setJob] = useState();
